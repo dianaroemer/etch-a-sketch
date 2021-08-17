@@ -31,3 +31,18 @@ for (let i = 0; i < 16; i++ ) {
 
 const containerList = document.querySelectorAll(('div'));
 
+// Goal 2: Clear current grid
+
+// steps: 
+// get container
+// get container subNodes
+// for each subNode, container.remove(subNode)
+
+const clearBtn = document.querySelector('#clearBtn');
+clearBtn.addEventListener('click', () => {
+    while ( container.firstChild ) {
+        container.removeChild(container.firstChild);
+    }
+
+})
+
