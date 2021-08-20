@@ -1,6 +1,9 @@
 # etch-a-sketch
 Etch-a-sketch Game
 
+LINK TO LIVE SITE ON GITHUB PAGES: https://dominicroemer.github.io/etch-a-sketch/
+
+
 Instructions: 
 
 1. Follow the instructions atop Odin’s Google Homepage project to set up a git repository for this project.
