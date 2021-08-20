@@ -82,7 +82,6 @@ function getInput() {
 const clearBtn = document.querySelector('#clearBtn');
 clearBtn.addEventListener('click', () => {
     // while loop that clears container's current children
-    console.log(container.style);
     while ( container.firstChild ) {
         container.removeChild(container.firstChild);
     }
@@ -101,7 +100,6 @@ clearBtn.addEventListener('click', () => {
 const colorBtn = document.querySelector('#colorBtn');
 colorBtn.addEventListener('click', () => {
     // while loop that clears container's current children
-    console.log(container.style);
     while ( container.firstChild ) {
         container.removeChild(container.firstChild);
     }
