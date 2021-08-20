@@ -10,6 +10,7 @@ container.style = `
     height: 1000px;
     grid-template-columns: 50px 50px 50px 50px;
     grid-template-rows: 50px 50px 50px 50px;
+    border: solid;
     `;
 
 
@@ -100,23 +101,62 @@ clearBtn.addEventListener('click', () => {
     
 })
 
+// Attaching event listener to color button
+const colorBtn = document.querySelector('#colorBtn');
+colorBtn.addEventListener('click', () => {
+    // while loop that clears container's current children
+    console.log(container.style);
+    while ( container.firstChild ) {
+        container.removeChild(container.firstChild);
+    }
+
+    getInput();
+
+    // Resize grid according to size specifications and user input
+    document.getElementById("container").style.gridTemplateColumns = `repeat(${input}, auto) `;
+    document.getElementById("container").style.gridTemplateRows = `repeat(${input}, auto) `;
+
+    // Add new elements to grid input*input number of times
+    populateContainerColor(input);
+    
+})
+
+// Attaching event listener to fade button
+const fadeBtn = document.querySelector('#fadeBtn');
+fadeBtn.addEventListener('click', () => {
+    // while loop that clears container's current children
+    console.log(container.style);
+    while ( container.firstChild ) {
+        container.removeChild(container.firstChild);
+    }
+
+    getInput();
+
+    // Resize grid according to size specifications and user input
+    document.getElementById("container").style.gridTemplateColumns = `repeat(${input}, auto) `;
+    document.getElementById("container").style.gridTemplateRows = `repeat(${input}, auto) `;
+
+    // Add new elements to grid input*input number of times
+    populateContainerFade(input);
+    
+})
+
 function populateContainer ( foo ) {
 
     for (let i = 0; i < foo*foo; i++ ) {
         const div = document.createElement(`div`);
-        div.setAttribute('id', `block${i}`)
+        div.setAttribute('id', `block${i}`);
     
         // Style newly created divs
         div.setAttribute( 'style',
             `background-color:white;`
-            // margin: 1px 1px 1px 1px;
         )
     
         // Add mouseover event listener and timeout function, changing color of object on mouseover, and after Timeout, reverting to original color
         div.addEventListener('mouseover', (e) => {
             e.target.style.backgroundColor = "black";
             
-            // After brief timeout in ms, revert color to initial black
+            // After brief timeout in milliSecs, revert color to initial black
             setTimeout(function() {
                 e.target.style.backgroundColor = "white";
             }, 500);
@@ -126,45 +166,95 @@ function populateContainer ( foo ) {
         // Append newly created and styled element to parent container
         container.appendChild(div);
     }
-
 }
 
 function populateContainerColor ( foo ) {
 
     for (let i = 0; i < foo*foo; i++ ) {
         const div = document.createElement(`div`);
-        div.setAttribute('id', `block${i}`)
+        div.setAttribute('id', `block${i}`);
     
         // Style newly created divs
         div.setAttribute( 'style',
             `background-color:white;`
-            // margin: 1px 1px 1px 1px;
         )
     
-        // Add mouseover event listener and timeout function, changing color of object on mouseover, and after Timeout, reverting to original color
+        // Add mouseover event listener changing color of object on mouseover to randomized rgb(x,y,z) from generateColorString 
         div.addEventListener('mouseover', (e) => {
             e.target.style.backgroundColor = generateColorString();
+        });
+    
+        // Append newly created and styled element to parent container
+        container.appendChild(div);
+    }
+}
+
+function populateContainerFade ( foo ) {
+
+    for (let i = 0; i < foo*foo; i++ ) {
+        const div = document.createElement(`div`);
+        div.setAttribute('id', `block${i}`);
+    
+        // Style newly created divs
+        div.setAttribute( 'style',
+            `background-color: rgb(0,0,0,0.0);`
+        )
+    
+        // Add mouseover event listener and changing color to gradually increase in shades of black with each additional mouseover
+        div.addEventListener('mouseover', (e) => {
+
+            console.log('------ Beginning of new mouseover event');
+
+            let endStr = '';
+
+            console.log(e.target.style.backgroundColor + " This is my color on initial mouseover");
+
+            // beginning of string
+            // console.log(e.target.style.backgroundColor.slice(0, 14));
+            let beginStr = e.target.style.backgroundColor.slice(0, 14);
             
-            // After brief timeout in ms, revert color to initial black
-            // setTimeout(function() {
-            //     e.target.style.backgroundColor = "white";
-            // }, 500);
+            // end of string
+            endStr = e.target.style.backgroundColor.substring(14);
+            console.log(endStr + " This is my endStr");
+            // Trimming off end of string leaving on numerical value
+            console.log(endStr.indexOf(')') + ' This is the index of the ) sign in endStr');
+            endStr = endStr.substring(0, endStr.indexOf(')'));
+            console.log(endStr + ' This is the endStr trimming off the finishing segments of string');
+
+            // Math to parse string to num, and add 10%
+            let endNum = parseFloat(endStr);
+            console.log(endNum + ' And this is endNum');
+            endNum += .1;
+            console.log(endNum + ' This is endNum plus .1');
+
+            let fullStr = beginStr + endNum + ')';
+            console.log(fullStr + ' This is my fullStr');  
+
+            e.target.style.backgroundColor = fullStr.toString();
+            // e.target.style.backgroundColor = "rgb(0,0,0,.1)";
+            console.log(e.target.style.backgroundColor + ' And finally, this is my finished backgroundColor on mouseover events');
+
+
+            // e.target.style.backgroundColor = `rgb(0, 0, 0, 10%)`;
+            // console.log(e.target.style.backgroundColor);
+
+            // 1. Slice the end off the background color string
+            // 2. Trim the string to the relevant mathematical value
+            // 3. Append the new math to the sliced early half of the string
+
+          
     
         });
     
         // Append newly created and styled element to parent container
         container.appendChild(div);
     }
-
 }
 
+// Generates and returns a string giving a randomized rgb(x, y, z) value for colors
 function generateColorString () {
 
-
     Math.floor(Math.random() * 256);
-
     return `rgb( ${Math.floor(Math.random() * 256)} , ${Math.floor(Math.random() * 256)} , ${Math.floor(Math.random() * 256)})`;
 
 }
-
-console.log(`rgb( ${Math.floor(Math.random() * 256)} , ${Math.floor(Math.random() * 256)} , ${Math.floor(Math.random() * 256)})`);
