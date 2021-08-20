@@ -68,9 +68,6 @@ function buildGrid( size ) {
     }
 }
 
-// const containerList = document.querySelectorAll(('div'));
-
-
 // Function that prompts and keeps user input for size of next grid
 let input;
 function getInput() {
@@ -98,7 +95,6 @@ clearBtn.addEventListener('click', () => {
 
     // Add new elements to grid input*input number of times
     populateContainer(input);
-    
 })
 
 // Attaching event listener to color button
@@ -118,7 +114,6 @@ colorBtn.addEventListener('click', () => {
 
     // Add new elements to grid input*input number of times
     populateContainerColor(input);
-    
 })
 
 // Attaching event listener to fade button
@@ -137,7 +132,6 @@ fadeBtn.addEventListener('click', () => {
 
     // Add new elements to grid input*input number of times
     populateContainerFade(input);
-    
 })
 
 function populateContainer ( foo ) {
@@ -151,7 +145,7 @@ function populateContainer ( foo ) {
             `background-color:white;`
         )
     
-        // Add mouseover event listener and timeout function, changing color of object on mouseover, and after Timeout, reverting to original color
+        // Add mouseover event listener and timeout function, changing color of object on mouseover, and after Timeout revert to original color
         div.addEventListener('mouseover', (e) => {
             e.target.style.backgroundColor = "black";
             
@@ -223,8 +217,6 @@ function populateContainerFade ( foo ) {
 
 // Generates and returns a string giving a randomized rgb(x, y, z) value for colors
 function generateColorString () {
-
     Math.floor(Math.random() * 256);
     return `rgb( ${Math.floor(Math.random() * 256)} , ${Math.floor(Math.random() * 256)} , ${Math.floor(Math.random() * 256)})`;
-
 }
