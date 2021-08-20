@@ -125,7 +125,6 @@ colorBtn.addEventListener('click', () => {
 const fadeBtn = document.querySelector('#fadeBtn');
 fadeBtn.addEventListener('click', () => {
     // while loop that clears container's current children
-    console.log(container.style);
     while ( container.firstChild ) {
         container.removeChild(container.firstChild);
     }
@@ -203,47 +202,18 @@ function populateContainerFade ( foo ) {
         // Add mouseover event listener and changing color to gradually increase in shades of black with each additional mouseover
         div.addEventListener('mouseover', (e) => {
 
-            console.log('------ Beginning of new mouseover event');
-
-            let endStr = '';
-
-            console.log(e.target.style.backgroundColor + " This is my color on initial mouseover");
-
-            // beginning of string
-            // console.log(e.target.style.backgroundColor.slice(0, 14));
+            // Slice first part of unchanging string - rgb(0, 0, 0, 
             let beginStr = e.target.style.backgroundColor.slice(0, 14);
-            
-            // end of string
-            endStr = e.target.style.backgroundColor.substring(14);
-            console.log(endStr + " This is my endStr");
-            // Trimming off end of string leaving on numerical value
-            console.log(endStr.indexOf(')') + ' This is the index of the ) sign in endStr');
+            // Substring alpha value segment of rgb to end
+            let endStr = e.target.style.backgroundColor.substring(14);
+            // Trimming off end of string leaving only numerical value
             endStr = endStr.substring(0, endStr.indexOf(')'));
-            console.log(endStr + ' This is the endStr trimming off the finishing segments of string');
-
             // Math to parse string to num, and add 10%
-            let endNum = parseFloat(endStr);
-            console.log(endNum + ' And this is endNum');
-            endNum += .1;
-            console.log(endNum + ' This is endNum plus .1');
+            let endNum = parseFloat(endStr) + .1;
 
-            let fullStr = beginStr + endNum + ')';
-            console.log(fullStr + ' This is my fullStr');  
-
-            e.target.style.backgroundColor = fullStr.toString();
-            // e.target.style.backgroundColor = "rgb(0,0,0,.1)";
-            console.log(e.target.style.backgroundColor + ' And finally, this is my finished backgroundColor on mouseover events');
-
-
-            // e.target.style.backgroundColor = `rgb(0, 0, 0, 10%)`;
-            // console.log(e.target.style.backgroundColor);
-
-            // 1. Slice the end off the background color string
-            // 2. Trim the string to the relevant mathematical value
-            // 3. Append the new math to the sliced early half of the string
-
-          
-    
+            //Assign new rgb value string to object's backgroundColor
+            e.target.style.backgroundColor = beginStr + endNum + ')';
+              
         });
     
         // Append newly created and styled element to parent container
