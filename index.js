@@ -98,12 +98,38 @@ clearBtn.addEventListener('click', () => {
     // Add new elements to grid input*input number of times
     populateContainer(input);
     
-
-
 })
 
-
 function populateContainer ( foo ) {
+
+    for (let i = 0; i < foo*foo; i++ ) {
+        const div = document.createElement(`div`);
+        div.setAttribute('id', `block${i}`)
+    
+        // Style newly created divs
+        div.setAttribute( 'style',
+            `background-color:white;`
+            // margin: 1px 1px 1px 1px;
+        )
+    
+        // Add mouseover event listener and timeout function, changing color of object on mouseover, and after Timeout, reverting to original color
+        div.addEventListener('mouseover', (e) => {
+            e.target.style.backgroundColor = "black";
+            
+            // After brief timeout in ms, revert color to initial black
+            setTimeout(function() {
+                e.target.style.backgroundColor = "white";
+            }, 500);
+    
+        });
+    
+        // Append newly created and styled element to parent container
+        container.appendChild(div);
+    }
+
+}
+
+function populateContainerColor ( foo ) {
 
     for (let i = 0; i < foo*foo; i++ ) {
         const div = document.createElement(`div`);
