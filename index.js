@@ -111,18 +111,18 @@ function populateContainer ( foo ) {
     
         // Style newly created divs
         div.setAttribute( 'style',
-            `background-color:black;`
+            `background-color:white;`
             // margin: 1px 1px 1px 1px;
         )
     
         // Add mouseover event listener and timeout function, changing color of object on mouseover, and after Timeout, reverting to original color
         div.addEventListener('mouseover', (e) => {
-            e.target.style.backgroundColor = "white";
+            e.target.style.backgroundColor = generateColorString();
             
             // After brief timeout in ms, revert color to initial black
-            setTimeout(function() {
-                e.target.style.backgroundColor = "black";
-            }, 500);
+            // setTimeout(function() {
+            //     e.target.style.backgroundColor = "white";
+            // }, 500);
     
         });
     
@@ -131,3 +131,14 @@ function populateContainer ( foo ) {
     }
 
 }
+
+function generateColorString () {
+
+
+    Math.floor(Math.random() * 256);
+
+    return `rgb( ${Math.floor(Math.random() * 256)} , ${Math.floor(Math.random() * 256)} , ${Math.floor(Math.random() * 256)})`;
+
+}
+
+console.log(`rgb( ${Math.floor(Math.random() * 256)} , ${Math.floor(Math.random() * 256)} , ${Math.floor(Math.random() * 256)})`);
