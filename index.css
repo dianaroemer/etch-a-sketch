@@ -4,3 +4,22 @@
     grid-template-columns: 50px 50px 50px 50px;
     grid-template-rows: 50px 50px 50px 50px;
 } */
+
+body {
+    display: grid;
+    grid-template-areas: 
+        " a "
+        " b ";
+    place-content: center;
+
+}
+
+#btnRow {
+    display:grid;
+    grid-template-columns: 33% 33% 33%;
+    justify-content: center;
+}
+
+.btn {
+    margin: 7px;
+}

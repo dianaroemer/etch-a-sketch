@@ -6,8 +6,8 @@ const container = document.querySelector('.container');
 // Styling container element with JS for easier reference when rebuilding grid later
 container.style = `
     display: grid;
-    width: 1000px;
-    height: 1000px;
+    width: 500px;
+    height: 500px;
     grid-template-columns: 50px 50px 50px 50px;
     grid-template-rows: 50px 50px 50px 50px;
     border: solid;
