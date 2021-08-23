@@ -9,14 +9,19 @@ body {
     display: grid;
     grid-template-areas: 
         " a "
-        " b ";
-    place-content: center;
-
+        " b "
+        " c "
+        " d ";
+    place-content: center center;
+    background-color: bisque;
+    text-align:center;
+    word-wrap: break-word;
 }
+
 
 #btnRow {
     display:grid;
-    grid-template-columns: 33% 33% 33%;
+    grid-template-columns: auto auto auto;
     justify-content: center;
 }
 
