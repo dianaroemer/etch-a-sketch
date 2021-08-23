@@ -4,6 +4,16 @@ Etch-a-sketch Game
 LINK TO LIVE SITE ON GITHUB PAGES: https://dominicroemer.github.io/etch-a-sketch/
 
 
+To-do:
+Establish default canvas to fill entire container
+Set default canvas colors to match background-color
+Set color background canvas to match background-color
+    See color manipulation on fadeBtn functionality
+Adjust empty space magins between Title (Etch-a-Sketch) and header (Draw within the...)
+
+
+
+
 Instructions: 
 
 1. Follow the instructions atop Odin’s Google Homepage project to set up a git repository for this project.
