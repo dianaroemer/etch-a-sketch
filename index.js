@@ -1,19 +1,10 @@
 // Create container pointer for reference elements
 const container = document.querySelector('.container');
 
-// Styling container element with JS for easier reference when rebuilding grid later
-container.style = `
-    display: grid;
-    width: 500px;
-    height: 500px;
-    grid-template-columns: repeat(10, auto);
-    grid-template-rows: repeat(10, auto);
-    border: solid;
-    `;
-
-
 // Create initial grid
-populateContainer(10);
+// The variable 25 is reference to the initial size of the container, populated later via getInput. It refers to the size of each individual 'pixel' div in the container AND the number of divs created, e.g. create 25x25 divs, establish grid to have width repeat(25, auto) for sizing each div appropriate to each other.
+// This can be rebuilt and cleaned up to initialize with standard functions used later on in code, instead of hardcode number to match the CSS grid
+populateContainer(25);
 
 
 // Function that prompts and keeps user input for size of next grid
