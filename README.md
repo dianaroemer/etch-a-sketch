@@ -5,7 +5,8 @@ LINK TO LIVE SITE ON GITHUB PAGES: https://dominicroemer.github.io/etch-a-sketch
 
 
 To-do:
-Adjust empty space magins between Title (Etch-a-Sketch) and header (Draw within the...)
+Rebuild basic color functionality by adding a new class to divs on "hover" effect to practice CSS class functionality, instead of managing color entirely throguh JS as I did in first pass
+Build slider bar and attach it to CSS class variables - see https://www.youtube.com/watch?v=AHLNzv13c2I&list=PLu8EoSxDXHP6CGK4YVJhL_VWetA865GOH&index=3&ab_channel=WesBos for reference
 
 
 
