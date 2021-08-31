@@ -8,68 +8,18 @@ container.style = `
     display: grid;
     width: 500px;
     height: 500px;
-    grid-template-columns: 50px 50px 50px 50px;
-    grid-template-rows: 50px 50px 50px 50px;
+    grid-template-columns: repeat(10, auto);
+    grid-template-rows: repeat(10, auto);
     border: solid;
     `;
 
 
-// Create initial 4x4 grid using for loop, adding elements to div before appending to container.
-for (let i = 0; i < 16; i++ ) {
-    const div = document.createElement(`div`);
-    div.setAttribute('id', `block${i}`)
+// Create initial grid
+populateContainer(10);
 
-    // Style newly created divs
-    div.setAttribute( 'style',
-        `background-color:black;`
-        // margin: 1px 1px 1px 1px;
-    )
-
-    // Add mouseover event listener and timeout function, changing color of object on mouseover, and after Timeout, reverting to original color
-    div.addEventListener('mouseover', (e) => {
-        e.target.style.backgroundColor = "white";
-        
-        // After brief timeout in ms, revert color to initial black
-        setTimeout(function() {
-            e.target.style.backgroundColor = "black";
-        }, 500);
-
-    });
-
-    // Append newly created and styled element to parent container
-    container.appendChild(div);
-}
-
-// Function of above for loop
-function buildGrid( size ) {
-    for (let i = 0; i < size; i++ ) {
-        const div = document.createElement(`div`);
-        div.setAttribute('id', `block${i}`)
-    
-        // Style newly created divs
-        div.setAttribute( 'style',
-            `background-color:black;`
-            // margin: 1px 1px 1px 1px;
-        )
-    
-        // Add mouseover event listener and timeout function, changing color of object on mouseover, and after Timeout, reverting to original color
-        div.addEventListener('mouseover', (e) => {
-            e.target.style.backgroundColor = "white";
-            
-            // After brief timeout in ms, revert color to initial black
-            setTimeout(function() {
-                e.target.style.backgroundColor = "black";
-            }, 500);
-    
-        });
-    
-        // Append newly created and styled element to parent container
-        container.appendChild(div);
-    }
-}
 
 // Function that prompts and keeps user input for size of next grid
-let input;
+let input = 10;
 function getInput() {
     input = window.prompt("How large should your new grid be in (x,x)?", 'x');
     if (input > 100) {
@@ -140,7 +90,7 @@ function populateContainer ( foo ) {
     
         // Style newly created divs
         div.setAttribute( 'style',
-            `background-color:white;`
+            `background-color: bisque;`
         )
     
         // Add mouseover event listener and timeout function, changing color of object on mouseover, and after Timeout revert to original color
@@ -149,7 +99,7 @@ function populateContainer ( foo ) {
             
             // After brief timeout in milliSecs, revert color to initial black
             setTimeout(function() {
-                e.target.style.backgroundColor = "white";
+                e.target.style.backgroundColor = "bisque";
             }, 500);
     
         });
@@ -218,3 +168,4 @@ function generateColorString () {
     Math.floor(Math.random() * 256);
     return `rgb( ${Math.floor(Math.random() * 256)} , ${Math.floor(Math.random() * 256)} , ${Math.floor(Math.random() * 256)})`;
 }
+
