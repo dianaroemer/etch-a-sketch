@@ -1,5 +1,3 @@
-// Goal 1: Create 16 Divs inside of "container"
-
 // Create container pointer for reference elements
 const container = document.querySelector('.container');
 
