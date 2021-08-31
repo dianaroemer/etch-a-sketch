@@ -95,10 +95,11 @@ function populateContainer ( foo ) {
         div.addEventListener('mouseover', (e) => {
             e.target.style.backgroundColor = "black";
             
+            // Optional timeout function that returns highlighted divs back to default color, currently hardcoded to bisque, but can be set to reference default page background color
             // After brief timeout in milliSecs, revert color to initial black
-            setTimeout(function() {
-                e.target.style.backgroundColor = "bisque";
-            }, 500);
+            // setTimeout(function() {
+            //     e.target.style.backgroundColor = "bisque";
+            // }, 500);
     
         });
     
@@ -166,4 +167,3 @@ function generateColorString () {
     Math.floor(Math.random() * 256);
     return `rgb( ${Math.floor(Math.random() * 256)} , ${Math.floor(Math.random() * 256)} , ${Math.floor(Math.random() * 256)})`;
 }
-
