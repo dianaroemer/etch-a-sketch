@@ -117,7 +117,7 @@ function populateContainerColor ( foo ) {
     
         // Style newly created divs
         div.setAttribute( 'style',
-            `background-color:white;`
+            `background-color: bisque;`
         )
     
         // Add mouseover event listener changing color of object on mouseover to randomized rgb(x,y,z) from generateColorString 

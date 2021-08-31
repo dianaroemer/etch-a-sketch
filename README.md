@@ -5,10 +5,6 @@ LINK TO LIVE SITE ON GITHUB PAGES: https://dominicroemer.github.io/etch-a-sketch
 
 
 To-do:
-Establish default canvas to fill entire container
-Set default canvas colors to match background-color
-Set color background canvas to match background-color
-    See color manipulation on fadeBtn functionality
 Adjust empty space magins between Title (Etch-a-Sketch) and header (Draw within the...)
 
 
